@@ -1,7 +1,7 @@
 <a name="top"></a>
-# example v0.1.0
+# HealthyBee Rest Api v0.1.0
 
-apiDoc basic example
+Restful api for HealthyBee web application
 
  - [Auth](#Auth)
    - [Authenticate](#Authenticate)

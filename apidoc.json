@@ -1,7 +1,7 @@
 {
-    "name": "example",
+    "name": "HealthyBee Rest Api",
     "version": "0.1.0",
-    "description": "apiDoc basic example",
-    "title": "Custom apiDoc browser title",
-    "url" : "https://api.github.com/v1"
+    "description": "Restful api for HealthyBee web application",
+    "title": "HealthyBee Api Docs",
+    "url" : "https://healthybee.herokuapp.com"
   }
