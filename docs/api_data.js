@@ -186,6 +186,242 @@ define({ "api": [
   },
   {
     "type": "post",
+    "url": "/feedbacks",
+    "title": "Create feedbacks",
+    "name": "CreateFeedbacks",
+    "group": "Feedbacks",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Feedbacks's name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "email",
+            "description": "<p>Feedbacks's email.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Feedbacks's message.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "feedbacks",
+            "description": "<p>Feedbacks's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Feedbacks not found.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/feedbacks/index.js",
+    "groupTitle": "Feedbacks"
+  },
+  {
+    "type": "get",
+    "url": "/feedbacks",
+    "title": "Retrieve feedbacks",
+    "name": "RetrieveFeedbacks",
+    "group": "Feedbacks",
+    "permission": [
+      {
+        "name": "admin",
+        "title": "Admin access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>admin access token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "q",
+            "description": "<p>Query to search.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "size": "1..30",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "size": "1..100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "30",
+            "description": "<p>Amount of returned items.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "sort",
+            "defaultValue": "-createdAt",
+            "description": "<p>Order of returned items.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "fields",
+            "description": "<p>Fields to be returned.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "feedbacks",
+            "description": "<p>List of feedbacks.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>admin access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/feedbacks/index.js",
+    "groupTitle": "Feedbacks"
+  },
+  {
+    "type": "get",
+    "url": "/feedbacks/:id",
+    "title": "Retrieve feedbacks",
+    "name": "RetrieveFeedbacks",
+    "group": "Feedbacks",
+    "permission": [
+      {
+        "name": "admin",
+        "title": "Admin access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>admin access token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "feedbacks",
+            "description": "<p>Feedbacks's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Feedbacks not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>admin access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/feedbacks/index.js",
+    "groupTitle": "Feedbacks"
+  },
+  {
+    "type": "post",
     "url": "/password-resets",
     "title": "Send email",
     "name": "SendPasswordReset",

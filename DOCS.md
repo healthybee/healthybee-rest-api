@@ -7,6 +7,9 @@ Restful api for HealthyBee web application
    - [Authenticate](#Authenticate)
    - [Authenticate with Facebook](#Authenticate-with-Facebook)
    - [Authenticate with Google](#Authenticate-with-Google)
+ - [Feedbacks](#Feedbacks)
+   - [Create feedbacks](#Create-feedbacks)
+   - [Retrieve feedbacks](#Retrieve-feedbacks)
  - [PasswordReset](#PasswordReset)
    - [Send email](#Send-email)
    - [Submit password](#Submit-password)
@@ -120,6 +123,75 @@ POST /auth/google
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | 401 |  | <p>Invalid credentials.</p> |
+
+# <a name='Feedbacks'></a> Feedbacks
+
+## <a name='Create-feedbacks'></a> Create feedbacks
+[Back to top](#top)
+
+```
+POST /feedbacks
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| name |  | <p>Feedbacks's name.</p> |
+| email |  | <p>Feedbacks's email.</p> |
+| message |  | <p>Feedbacks's message.</p> |
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| feedbacks | `Object` | <p>Feedbacks's data.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 400 | `Object` | <p>Some parameters may contain invalid values.</p> |
+| 404 |  | <p>Feedbacks not found.</p> |
+
+## <a name='Retrieve-feedbacks'></a> Retrieve feedbacks
+[Back to top](#top)
+
+```
+GET /feedbacks
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| access_token | `String` | <p>admin access token.</p> |
+| q | `String` | **optional** <p>Query to search.</p> |
+| page | `Number` | **optional** <p>Page number.</p>_Default value: 1_<br>_Size range: 1..30_<br> |
+| limit | `Number` | **optional** <p>Amount of returned items.</p>_Default value: 30_<br>_Size range: 1..100_<br> |
+| sort | `String[]` | **optional** <p>Order of returned items.</p>_Default value: -createdAt_<br> |
+| fields | `String[]` | **optional** <p>Fields to be returned.</p> |
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| feedbacks | `Object[]` | <p>List of feedbacks.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 400 | `Object` | <p>Some parameters may contain invalid values.</p> |
+| 401 |  | <p>admin access only.</p> |
 
 # <a name='PasswordReset'></a> PasswordReset
 
