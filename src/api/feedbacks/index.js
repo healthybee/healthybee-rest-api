@@ -1,13 +1,14 @@
-import { Router } from 'express'
-import { middleware as query } from 'querymen'
-import { middleware as body } from 'bodymen'
-import { token } from '../../services/passport'
-import { create, index, show } from './controller'
-import { schema } from './model'
-export Feedbacks, { schema } from './model'
+import { Router } from "express";
+import { middleware as query } from "querymen";
+import { middleware as body } from "bodymen";
+import { token } from "../../services/passport";
+import { create, index, show } from "./controller";
+import { schema } from "./model";
 
-const router = new Router()
-const { name, email, message } = schema.tree
+export Feedbacks, { schema } from "./model";
+
+const router = new Router();
+const { email, number, message } = schema.tree;
 
 /**
  * @api {post} /feedbacks Create feedbacks
@@ -20,9 +21,7 @@ const { name, email, message } = schema.tree
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 404 Feedbacks not found.
  */
-router.post('/',
-  body({ name, email, message }),
-  create)
+router.post("/", body({ email, number, message }), create);
 
 /**
  * @api {get} /feedbacks Retrieve feedbacks
@@ -35,10 +34,7 @@ router.post('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 401 admin access only.
  */
-router.get('/',
-  token({ required: true, roles: ['admin'] }),
-  query(),
-  index)
+router.get("/", token({ required: true, roles: ["admin"] }), query(), index);
 
 /**
  * @api {get} /feedbacks/:id Retrieve feedbacks
@@ -51,8 +47,6 @@ router.get('/',
  * @apiError 404 Feedbacks not found.
  * @apiError 401 admin access only.
  */
-router.get('/:id',
-  token({ required: true, roles: ['admin'] }),
-  show)
+router.get("/:id", token({ required: true, roles: ["admin"] }), show);
 
-export default router
+export default router;
