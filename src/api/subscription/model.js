@@ -15,13 +15,11 @@ const subscriptionSchema = new Schema(
     age: {
       type: Number,
       minlength: 2,
-      trim: true,
       required: true,
     },
     weight: {
       type: Number,
       minlength: 2,
-      trim: true,
       required: true,
     },
     line0: {
@@ -69,7 +67,6 @@ const subscriptionSchema = new Schema(
     meal_duration: {
       type: Number,
       minlength: 2,
-      trim: true,
       required: true,
     },
     start_date: {
@@ -86,7 +83,6 @@ const subscriptionSchema = new Schema(
     pincode: {
       type: Number,
       minlength: 6,
-      trim: true,
       required: true,
     },
     physical_activity: {

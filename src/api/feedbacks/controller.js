@@ -19,5 +19,12 @@ export const show = ({ params }, res, next) =>
     .then(notFound(res))
     .then((feedbacks) => (feedbacks ? feedbacks.view() : null))
     .then(success(res))
-    .then(sendMail("prasanna.1616@gmail.com", "test", "test"))
+    .then(
+      sendMail(
+        "healthybee.fit.developer@gmail.com",
+        "prasanna.1616@gmail.com",
+        "test",
+        "test"
+      )
+    )
     .catch(next);
