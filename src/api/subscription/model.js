@@ -67,7 +67,7 @@ const subscriptionSchema = new Schema(
       required: true,
     },
     start_date: {
-      type: Date,
+      type: String,
       trim: true,
       required: true,
     },
