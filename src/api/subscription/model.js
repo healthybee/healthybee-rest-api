@@ -79,7 +79,6 @@ const subscriptionSchema = new Schema(
     },
     pincode: {
       type: Number,
-      minlength: 6,
       required: true,
     },
     physical_activity: {
