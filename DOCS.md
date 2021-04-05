@@ -14,6 +14,12 @@ Restful api for HealthyBee web application
    - [Send email](#Send-email)
    - [Submit password](#Submit-password)
    - [Verify token](#Verify-token)
+ - [Subscription](#Subscription)
+   - [Create subscription](#Create-subscription)
+   - [Delete subscription](#Delete-subscription)
+   - [Retrieve subscription](#Retrieve-subscription)
+   - [Retrieve subscriptions](#Retrieve-subscriptions)
+   - [Update subscription](#Update-subscription)
  - [User](#User)
    - [Create user](#Create-user)
    - [Delete user](#Delete-user)
@@ -278,6 +284,199 @@ GET /password-resets/:token
 | Name     | Type       | Description                           |
 |----------|------------|---------------------------------------|
 | 404 |  | <p>Token has expired or doesn't exist.</p> |
+
+# <a name='Subscription'></a> Subscription
+
+## <a name='Create-subscription'></a> Create subscription
+[Back to top](#top)
+
+```
+POST /subscriptions
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| access_token | `String` | <p>master access token.</p> |
+| name |  | <p>Subscription's name.</p> |
+| mobile |  | <p>Subscription's mobile.</p> |
+| age |  | <p>Subscription's age.</p> |
+| weight |  | <p>Subscription's weight.</p> |
+| line0 |  | <p>Subscription's line0.</p> |
+| line1 |  | <p>Subscription's line1.</p> |
+| line2 |  | <p>Subscription's line2.</p> |
+| fitness_goal |  | <p>Subscription's fitness_goal.</p> |
+| diet_preference |  | <p>Subscription's diet_preference.</p> |
+| meal_preference |  | <p>Subscription's meal_preference.</p> |
+| meals |  | <p>Subscription's meals.</p> |
+| meal_duration |  | <p>Subscription's meal_duration.</p> |
+| start_date |  | <p>Subscription's start_date.</p> |
+| gender |  | <p>Subscription's gender.</p> |
+| pincode |  | <p>Subscription's pincode.</p> |
+| physical_activity |  | <p>Subscription's physical_activity.</p> |
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| subscription | `Object` | <p>Subscription's data.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 400 | `Object` | <p>Some parameters may contain invalid values.</p> |
+| 404 |  | <p>Subscription not found.</p> |
+| 401 |  | <p>master access only.</p> |
+
+## <a name='Delete-subscription'></a> Delete subscription
+[Back to top](#top)
+
+```
+DELETE /subscriptions/:id
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| access_token | `String` | <p>master access token.</p> |
+
+### Success response
+
+#### Success response - `Success 204`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 204 |  | <p>No Content.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 404 |  | <p>Subscription not found.</p> |
+| 401 |  | <p>master access only.</p> |
+
+## <a name='Retrieve-subscription'></a> Retrieve subscription
+[Back to top](#top)
+
+```
+GET /subscriptions/:id
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| access_token | `String` | <p>master access token.</p> |
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| subscription | `Object` | <p>Subscription's data.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 400 | `Object` | <p>Some parameters may contain invalid values.</p> |
+| 404 |  | <p>Subscription not found.</p> |
+| 401 |  | <p>master access only.</p> |
+
+## <a name='Retrieve-subscriptions'></a> Retrieve subscriptions
+[Back to top](#top)
+
+```
+GET /subscriptions
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| access_token | `String` | <p>master access token.</p> |
+| q | `String` | **optional** <p>Query to search.</p> |
+| page | `Number` | **optional** <p>Page number.</p>_Default value: 1_<br>_Size range: 1..30_<br> |
+| limit | `Number` | **optional** <p>Amount of returned items.</p>_Default value: 30_<br>_Size range: 1..100_<br> |
+| sort | `String[]` | **optional** <p>Order of returned items.</p>_Default value: -createdAt_<br> |
+| fields | `String[]` | **optional** <p>Fields to be returned.</p> |
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| count | `Number` | <p>Total amount of subscriptions.</p> |
+| rows | `Object[]` | <p>List of subscriptions.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 400 | `Object` | <p>Some parameters may contain invalid values.</p> |
+| 401 |  | <p>master access only.</p> |
+
+## <a name='Update-subscription'></a> Update subscription
+[Back to top](#top)
+
+```
+PUT /subscriptions/:id
+```
+
+### Parameters - `Parameter`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| access_token | `String` | <p>master access token.</p> |
+| name |  | <p>Subscription's name.</p> |
+| mobile |  | <p>Subscription's mobile.</p> |
+| age |  | <p>Subscription's age.</p> |
+| weight |  | <p>Subscription's weight.</p> |
+| line0 |  | <p>Subscription's line0.</p> |
+| line1 |  | <p>Subscription's line1.</p> |
+| line2 |  | <p>Subscription's line2.</p> |
+| fitness_goal |  | <p>Subscription's fitness_goal.</p> |
+| diet_preference |  | <p>Subscription's diet_preference.</p> |
+| meal_preference |  | <p>Subscription's meal_preference.</p> |
+| meals |  | <p>Subscription's meals.</p> |
+| meal_duration |  | <p>Subscription's meal_duration.</p> |
+| start_date |  | <p>Subscription's start_date.</p> |
+| gender |  | <p>Subscription's gender.</p> |
+| pincode |  | <p>Subscription's pincode.</p> |
+| physical_activity |  | <p>Subscription's physical_activity.</p> |
+
+### Success response
+
+#### Success response - `Success 200`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| subscription | `Object` | <p>Subscription's data.</p> |
+
+### Error response
+
+#### Error response - `Error 4xx`
+
+| Name     | Type       | Description                           |
+|----------|------------|---------------------------------------|
+| 400 | `Object` | <p>Some parameters may contain invalid values.</p> |
+| 404 |  | <p>Subscription not found.</p> |
+| 401 |  | <p>master access only.</p> |
 
 # <a name='User'></a> User
 

@@ -582,6 +582,571 @@
   },
   {
     "type": "post",
+    "url": "/subscriptions",
+    "title": "Create subscription",
+    "name": "CreateSubscription",
+    "group": "Subscription",
+    "permission": [
+      {
+        "name": "master",
+        "title": "Master access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>master access token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Subscription's name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>Subscription's mobile.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Subscription's age.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "weight",
+            "description": "<p>Subscription's weight.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "line0",
+            "description": "<p>Subscription's line0.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "line1",
+            "description": "<p>Subscription's line1.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "line2",
+            "description": "<p>Subscription's line2.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "fitness_goal",
+            "description": "<p>Subscription's fitness_goal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "diet_preference",
+            "description": "<p>Subscription's diet_preference.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "meal_preference",
+            "description": "<p>Subscription's meal_preference.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "meals",
+            "description": "<p>Subscription's meals.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "meal_duration",
+            "description": "<p>Subscription's meal_duration.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "start_date",
+            "description": "<p>Subscription's start_date.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Subscription's gender.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "pincode",
+            "description": "<p>Subscription's pincode.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "physical_activity",
+            "description": "<p>Subscription's physical_activity.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "subscription",
+            "description": "<p>Subscription's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Subscription not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>master access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/subscription/index.js",
+    "groupTitle": "Subscription"
+  },
+  {
+    "type": "delete",
+    "url": "/subscriptions/:id",
+    "title": "Delete subscription",
+    "name": "DeleteSubscription",
+    "group": "Subscription",
+    "permission": [
+      {
+        "name": "master",
+        "title": "Master access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>master access token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 204": [
+          {
+            "group": "Success 204",
+            "optional": false,
+            "field": "204",
+            "description": "<p>No Content.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Subscription not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>master access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/subscription/index.js",
+    "groupTitle": "Subscription"
+  },
+  {
+    "type": "get",
+    "url": "/subscriptions/:id",
+    "title": "Retrieve subscription",
+    "name": "RetrieveSubscription",
+    "group": "Subscription",
+    "permission": [
+      {
+        "name": "master",
+        "title": "Master access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>master access token.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "subscription",
+            "description": "<p>Subscription's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Subscription not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>master access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/subscription/index.js",
+    "groupTitle": "Subscription"
+  },
+  {
+    "type": "get",
+    "url": "/subscriptions",
+    "title": "Retrieve subscriptions",
+    "name": "RetrieveSubscriptions",
+    "group": "Subscription",
+    "permission": [
+      {
+        "name": "master",
+        "title": "Master access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>master access token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "q",
+            "description": "<p>Query to search.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "size": "1..30",
+            "optional": true,
+            "field": "page",
+            "defaultValue": "1",
+            "description": "<p>Page number.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Number",
+            "size": "1..100",
+            "optional": true,
+            "field": "limit",
+            "defaultValue": "30",
+            "description": "<p>Amount of returned items.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "sort",
+            "defaultValue": "-createdAt",
+            "description": "<p>Order of returned items.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String[]",
+            "optional": true,
+            "field": "fields",
+            "description": "<p>Fields to be returned.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "count",
+            "description": "<p>Total amount of subscriptions.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "rows",
+            "description": "<p>List of subscriptions.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>master access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/subscription/index.js",
+    "groupTitle": "Subscription"
+  },
+  {
+    "type": "put",
+    "url": "/subscriptions/:id",
+    "title": "Update subscription",
+    "name": "UpdateSubscription",
+    "group": "Subscription",
+    "permission": [
+      {
+        "name": "master",
+        "title": "Master access only",
+        "description": "<p>You must pass <code>access_token</code> parameter or a Bearer Token authorization header to access this endpoint.</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "access_token",
+            "description": "<p>master access token.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "name",
+            "description": "<p>Subscription's name.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "mobile",
+            "description": "<p>Subscription's mobile.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "age",
+            "description": "<p>Subscription's age.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "weight",
+            "description": "<p>Subscription's weight.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "line0",
+            "description": "<p>Subscription's line0.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "line1",
+            "description": "<p>Subscription's line1.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "line2",
+            "description": "<p>Subscription's line2.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "fitness_goal",
+            "description": "<p>Subscription's fitness_goal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "diet_preference",
+            "description": "<p>Subscription's diet_preference.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "meal_preference",
+            "description": "<p>Subscription's meal_preference.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "meals",
+            "description": "<p>Subscription's meals.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "meal_duration",
+            "description": "<p>Subscription's meal_duration.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "start_date",
+            "description": "<p>Subscription's start_date.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>Subscription's gender.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "pincode",
+            "description": "<p>Subscription's pincode.</p>"
+          },
+          {
+            "group": "Parameter",
+            "optional": false,
+            "field": "physical_activity",
+            "description": "<p>Subscription's physical_activity.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "subscription",
+            "description": "<p>Subscription's data.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Object",
+            "optional": false,
+            "field": "400",
+            "description": "<p>Some parameters may contain invalid values.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "404",
+            "description": "<p>Subscription not found.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "optional": false,
+            "field": "401",
+            "description": "<p>master access only.</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "src/api/subscription/index.js",
+    "groupTitle": "Subscription"
+  },
+  {
+    "type": "post",
     "url": "/users",
     "title": "Create user",
     "name": "CreateUser",
