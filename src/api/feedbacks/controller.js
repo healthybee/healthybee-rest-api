@@ -1,6 +1,5 @@
 import { success, notFound } from "../../services/response/";
 import { Feedbacks } from ".";
-import { sendMail } from "../../services/sendgrid";
 
 export const create = ({ bodymen: { body } }, res, next) =>
   Feedbacks.create(body)
@@ -19,12 +18,4 @@ export const show = ({ params }, res, next) =>
     .then(notFound(res))
     .then((feedbacks) => (feedbacks ? feedbacks.view() : null))
     .then(success(res))
-    .then(
-      sendMail(
-        "healthybee.fit.developer@gmail.com",
-        "prasanna.1616@gmail.com",
-        "test",
-        "test"
-      )
-    )
     .catch(next);
