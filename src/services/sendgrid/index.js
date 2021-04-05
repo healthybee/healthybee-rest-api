@@ -15,6 +15,21 @@ export const sendMail = ({
     subject,
     html: content,
   };
-  console.log("email send called with", msg);
-  return sendgridMail.send(msg);
+  console.log("Email parameters ->>>>>", msg);
+  return sendgridMail
+    .send(msg)
+    .then(() => {
+      console.log("email sent");
+    })
+    .catch((error) => {
+      if (error.response) {
+        // Extract error msg
+        const { message, code, response } = error;
+
+        // Extract response msg
+        const { headers, body } = response;
+
+        console.error(body);
+      }
+    });
 };
