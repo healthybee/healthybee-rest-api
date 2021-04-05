@@ -10,7 +10,6 @@ const subscriptionSchema = new Schema(
     },
     mobile: {
       type: Number,
-      minlength: 10,
       required: true,
     },
     age: {
