@@ -1,13 +1,30 @@
-import { Router } from 'express'
-import { middleware as query } from 'querymen'
-import { middleware as body } from 'bodymen'
-import { master } from '../../services/passport'
-import { create, index, show, update, destroy } from './controller'
-import { schema } from './model'
-export Subscription, { schema } from './model'
+import { Router } from "express";
+import { middleware as query } from "querymen";
+import { middleware as body } from "bodymen";
+import { master } from "../../services/passport";
+import { create, index, show, update, destroy } from "./controller";
+import { schema } from "./model";
+export Subscription, { schema } from "./model";
 
-const router = new Router()
-const { name, mobile, age, weight, line0, line1, line2, fitness_goal, diet_preference, meal_preference, meals, meal_duration, start_date, gender, pincode, physical_activity } = schema.tree
+const router = new Router();
+const {
+  name,
+  mobile,
+  age,
+  weight,
+  line0,
+  line1,
+  line2,
+  fitness_goal,
+  diet_preference,
+  meal_preference,
+  meals,
+  meal_duration,
+  start_date,
+  gender,
+  pincode,
+  physical_activity,
+} = schema.tree;
 
 /**
  * @api {post} /subscriptions Create subscription
@@ -36,10 +53,28 @@ const { name, mobile, age, weight, line0, line1, line2, fitness_goal, diet_prefe
  * @apiError 404 Subscription not found.
  * @apiError 401 master access only.
  */
-router.post('/',
-  master(),
-  body({ name, mobile, age, weight, line0, line1, line2, fitness_goal, diet_preference, meal_preference, meals, meal_duration, start_date, gender, pincode, physical_activity }),
-  create)
+router.post(
+  "/",
+  body({
+    name,
+    mobile,
+    age,
+    weight,
+    line0,
+    line1,
+    line2,
+    fitness_goal,
+    diet_preference,
+    meal_preference,
+    meals,
+    meal_duration,
+    start_date,
+    gender,
+    pincode,
+    physical_activity,
+  }),
+  create
+);
 
 /**
  * @api {get} /subscriptions Retrieve subscriptions
@@ -53,10 +88,7 @@ router.post('/',
  * @apiError {Object} 400 Some parameters may contain invalid values.
  * @apiError 401 master access only.
  */
-router.get('/',
-  master(),
-  query(),
-  index)
+router.get("/", master(), query(), index);
 
 /**
  * @api {get} /subscriptions/:id Retrieve subscription
@@ -69,9 +101,7 @@ router.get('/',
  * @apiError 404 Subscription not found.
  * @apiError 401 master access only.
  */
-router.get('/:id',
-  master(),
-  show)
+router.get("/:id", master(), show);
 
 /**
  * @api {put} /subscriptions/:id Update subscription
@@ -100,10 +130,29 @@ router.get('/:id',
  * @apiError 404 Subscription not found.
  * @apiError 401 master access only.
  */
-router.put('/:id',
+router.put(
+  "/:id",
   master(),
-  body({ name, mobile, age, weight, line0, line1, line2, fitness_goal, diet_preference, meal_preference, meals, meal_duration, start_date, gender, pincode, physical_activity }),
-  update)
+  body({
+    name,
+    mobile,
+    age,
+    weight,
+    line0,
+    line1,
+    line2,
+    fitness_goal,
+    diet_preference,
+    meal_preference,
+    meals,
+    meal_duration,
+    start_date,
+    gender,
+    pincode,
+    physical_activity,
+  }),
+  update
+);
 
 /**
  * @api {delete} /subscriptions/:id Delete subscription
@@ -115,8 +164,6 @@ router.put('/:id',
  * @apiError 404 Subscription not found.
  * @apiError 401 master access only.
  */
-router.delete('/:id',
-  master(),
-  destroy)
+router.delete("/:id", master(), destroy);
 
-export default router
+export default router;
