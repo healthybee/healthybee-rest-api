@@ -11,8 +11,6 @@ const subscriptionSchema = new Schema(
     mobile: {
       type: Number,
       minlength: 10,
-      maxlength: 10,
-      trim: true,
       required: true,
     },
     age: {
